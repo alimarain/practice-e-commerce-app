@@ -11,7 +11,7 @@ class _OnboardingState extends State<Onboarding> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffecefe8),
+      backgroundColor: Color.fromARGB(255, 180, 180, 180),
       body: Container(
         // margin: EdgeInsets.only(top: 50.0),
         child: Column(
@@ -19,10 +19,11 @@ class _OnboardingState extends State<Onboarding> {
           children: [
             Image.asset("images/fashion.jpg"),
             Padding(
-              padding: const EdgeInsets.only(left: 20.0),
+              padding: const EdgeInsets.only(left: 20.0, top: 20.0),
               child: Text(
-                "Best store Ever",
+                "Best Store Ever",
                 style: TextStyle(
+                    // backgroundColor: Colors.amber,
                     color: Colors.black,
                     fontSize: 30.0,
                     fontWeight: FontWeight.bold),
