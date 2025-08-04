@@ -10,11 +10,11 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List categories = [
-    "images/headphone.jpg"
-        "images/laptop/jpg"
-        "images/tv.png"
-        "images/watch.jpg"
+  final List<String> categories = [
+    'images/headphone.jpg',
+    'images/laptop.jpg',
+    'images/backpack.png',
+    'images/watch.jpg',
   ];
 
   @override
@@ -78,18 +78,18 @@ class _HomeState extends State<Home> {
               ],
             ),
             Container(
-              margin: EdgeInsets.only(
-                left: 20.0,
-              ),
-              height: 70,
-              child: ListView.builder(
+                margin: EdgeInsets.only(
+                  left: 20.0,
+                ),
+                height: 120,
+                child: ListView.builder(
                   itemCount: categories.length,
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     return CategoryTile(image: categories[index]);
-                  }),
-            )
+                  },
+                ))
           ],
         ),
       ),
@@ -98,18 +98,29 @@ class _HomeState extends State<Home> {
 }
 
 class CategoryTile extends StatelessWidget {
-  String image;
-  CategoryTile({required this.image});
+  final String image;
+  const CategoryTile({super.key, required this.image});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(color: Colors.white),
-      height: 90,
-      width: 90,
+      padding: EdgeInsets.all(20),
+      margin: EdgeInsets.only(right: 25.0),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+      ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(image),
+          Image.asset(
+            image,
+            height: 50,
+            width: 50,
+            fit: BoxFit.contain,
+          ),
+          SizedBox(height: 10),
+          Icon(Icons.arrow_forward, size: 20),
         ],
       ),
     );
